@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div>
+            <button onclick="callCrx()">call crx</button>
+        </div>
+    </body>
+    <script type="text/javascript">
+        const callCrx = () => {
+            alert('call crx')
+            window.dispatchEvent(new CustomEvent('message', {detail: 'hi'}));
+        }
+        window.addEventListener('message', (event) => {
+            console.log(event.detail); // 'hello'
+        });
+    </script>
+</html>
