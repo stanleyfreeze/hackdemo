@@ -3,7 +3,11 @@ import { createRoot } from 'react-dom/client';
 import Style from '@/styles/index.less';
 
 const Popup = () => {
-  return <>Hello World2!</>;
+  return (
+    <div className={Style.popup}>
+      <div className={Style.content}>Hack Demo</div>
+    </div>
+  );
 };
 
 const root = createRoot(document.getElementById('root')!);

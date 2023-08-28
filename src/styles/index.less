@@ -1,4 +1,4 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -7,7 +7,7 @@ body{
   background: url(./bg.png) no-repeat;
   width: 248px;
   height: 314px;
-  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
   padding: 1px 1px 1px 1px;
   display: flex;
   flex-direction: column-reverse;
@@ -16,116 +16,9 @@ body{
     overflow: auto;
     width: 232px;
     height: 202px;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 10px;
     margin: 10px auto 10px;
-    & > ul {
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      grid-template-rows: 50% 50%;
-      height: 100%;
-      align-items: center;
-      justify-items: center;
-      & > li{
-        list-style: none;
-        text-align: center;
-        & > div{
-          cursor: pointer;
-          width: 88px;
-          height: 78px;
-          align-items: center;
-          justify-content: center;
-          display: flex;
-          flex-direction: column;
-          &:hover{
-            width: 88px;
-            height: 78px;
-            background: #0073FF linear-gradient(154deg, #2FEDB1 0%, #7cb3a1 100%);
-            box-shadow: 0px 4px 10px 0px rgba(29,105,74,0.24);
-            border-radius: 8px 8px 8px 8px;
-            color: #fff;
-            & > b{background-size: 100%;}
-            .screenshot{
-              background-image: url(screen_seled.png);
-            }
-            .creenScreen{
-              background-image: url(current_seled.png);
-            }
-            .select{
-              background-image: url(select_seled.png);
-            }
-            .videoStart{
-              background-image: url(video_seled.png);
-            }
-          }
-        }
-      }
-    }
-    .screenshot,.creenScreen,.select,.videoStart{
-      display: block;
-      margin: 0 auto 8px;
-    }
-    .screenshot{
-      width: 26px;
-      height: 23px;
-      background: url(screen.png) no-repeat;
-      background-size: 100%;
-    }
-    .creenScreen{
-      width:28px;
-      height:28px;
-      background: url(current.png) no-repeat;
-      background-size: 100%;
-    }
-    .select{
-      width:28px;
-      height:28px;
-      background: url(select.png) no-repeat;
-      background-size: 100%;
-    }
-    .videoStart{width:28px;
-      height:28px;
-      background: url(video.png) no-repeat;
-      background-size: 100%;
-    }
-    :global{
-      .selected{
-        width: 88px;
-        height: 78px;
-        background: #0073FF linear-gradient(154deg, #2FEDB1 0%, #19C18C 100%);
-        box-shadow: 0px 4px 10px 0px rgba(29,105,74,0.24);
-        border-radius: 8px 8px 8px 8px;
-        color: #616161;
-      }
-    }
-    :global(.selected){
-      color:#fff;
-      .screenshot{
-        width: 26px;
-        height: 23px;
-        background: url(screen_seled.png) no-repeat;
-        background-size: 100%;
-      }
-      .creenScreen{
-        width:28px;
-        height:28px;
-        background: url(current_seled.png) no-repeat;
-        background-size: 100%;
-      }
-      .select{
-        width:28px;
-        height:28px;
-        background: url(select_seled.png) no-repeat;
-        background-size: 100%;
-      }
-      .videoStart{width:28px;
-        height:28px;
-        background: url(video_seled.png) no-repeat;
-        background-size: 100%;
-      }
-    }
   }
 }
 .newTab {
@@ -133,11 +26,7 @@ body{
   min-height: 100vh;
 }
 
-.progress{
+.progress {
   width: 250px;
   height: 142px;
 }
-
-// .img {
-//   max-width: 100%;
-// }

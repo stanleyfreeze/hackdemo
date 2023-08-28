@@ -1,10 +1,2 @@
-const actionIconWhitelist: string[] = [
-  'zhongan.com',
-  'baidu.com',
-  'pingan.com',
-  'zhonganonline.com',
-  'zhonganoninfo.com',
-  'za.biz',
-  'localhost',
-];
+const actionIconWhitelist: string[] = ['baidu.com', 'google.com', 'localhost'];
 export default actionIconWhitelist;
