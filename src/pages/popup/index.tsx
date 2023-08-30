@@ -1,22 +1,16 @@
-import Style from '@/styles/index.less';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Detail from './detail';
+import Home from './home';
+import './assets/index.less';
 
 const Popup = () => {
   return (
     <Router>
-      <div className={Style.popup}>
-        <div className={Style.content}>
-          Hack Demo
-          <Link to="/detail">Detail</Link>
-        </div>
-      </div>
       <Switch>
-        <Route path="/detail">
-          <Detail />
-        </Route>
+        <Route path="/detail" component={Detail} />
+        <Route path="/" exact component={Home} />
       </Switch>
     </Router>
   );
