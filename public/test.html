@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./style/custom.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <button onclick="begin()">开始</button>
+    <script>
+      function appendElement(parent, className, tag) {
+        const div = document.createElement(tag || 'div');
+        div.className = className;
+        parent.appendChild(div);
+        return div;
+      }
+
+      const isTouchDevice = /android|iphone|ipad/i.test(navigator.userAgent);
+
+      function prepareCropElements({ onOk }) {
+        let startX, startY, top, left, width, height;
+        let isMouseDown, target;
+
+        const handleMouseDown = (e, _target) => {
+          isMouseDown = e.target.tagName === 'DIV';
+          target = _target;
+          if (_target === 'rb') {
+            startX = left;
+            startY = top;
+          } else if (_target === 'rt') {
+            startX = left;
+            startY = top + height;
+          } else if (_target === 'lt') {
+            startX = left + width;
+            startY = top + height;
+          } else if (_target === 'lb') {
+            startX = left + width;
+            startY = top;
+          } else {
+            startX = e.clientX;
+            startY = e.clientY;
+          }
+          btnOk.focus();
+          e.stopPropagation();
+        };
+
+        const root = appendElement(document.body, 'page_audit_mask');
+        const crop = appendElement(root, 'page_audit_crop');
+        ['lt', 'lb', 'rt', 'rb'].map((item) => {
+          const div = appendElement(crop, 'page_audit_r ' + item);
+          div.addEventListener('pointerdown', function (e) {
+            handleMouseDown(e, item);
+          });
+          return div;
+        });
+
+        const btnCancel = appendElement(crop, 'page_audit_btn page_audit_cancel', 'button');
+        btnCancel.textContent = '取消';
+        const btnOk = appendElement(crop, 'page_audit_btn', 'button');
+        btnOk.textContent = '确定';
+
+        crop.addEventListener('pointerdown', function (e) {
+          handleMouseDown(e, 'crop');
+        });
+
+        root.addEventListener('pointerdown', handleMouseDown);
+
+        root.addEventListener(isTouchDevice ? 'touchmove' : 'pointermove', function (e) {
+          if (isMouseDown) {
+            const eventTarget = e.touches ? e.touches[0] : e;
+            const currentX = eventTarget.clientX;
+            const currentY = eventTarget.clientY;
+
+            const deltX = currentX - startX;
+            const deltY = currentY - startY;
+
+            if (target === 'crop') {
+              crop.style.top = top + deltY + 'px';
+              crop.style.left = left + deltX + 'px';
+            } else {
+              const _startX = currentX < startX ? currentX : startX;
+              const _startY = currentY < startY ? currentY : startY;
+              crop.style.left = _startX + 'px';
+              crop.style.top = _startY + 'px';
+              crop.style.width = Math.abs(deltX) + 'px';
+              crop.style.height = Math.abs(deltY) + 'px';
+            }
+          }
+          e.stopPropagation();
+          e.preventDefault();
+        });
+
+        root.addEventListener('pointerup', function (e) {
+          isMouseDown = false;
+          target = '';
+          width = parseInt(crop.style.width) || 0;
+          height = parseInt(crop.style.height) || 0;
+          top = parseInt(crop.style.top) || 0;
+          left = parseInt(crop.style.left) || 0;
+          e.stopPropagation();
+        });
+
+        const onKeyUp = (e) => {
+          if (e.code === 'Escape') {
+            destroy();
+          } else if (e.code === 'Enter') {
+            hanleOk();
+          }
+        };
+
+        const destroy = () => {
+          root.remove();
+          window.removeEventListener('keyup', onKeyUp);
+        };
+
+        const hanleOk = () => {
+          onOk({ x: left, y: top, width, height });
+          destroy();
+        };
+
+        btnCancel.addEventListener('click', destroy);
+        btnOk.addEventListener('click', hanleOk);
+        window.addEventListener('keyup', onKeyUp);
+      }
+
+      function begin() {
+        prepareCropElements({
+          onOk(e) {
+            console.log(e);
+          },
+        });
+      }
+
+      begin();
+    </script>
+  </body>
+</html>

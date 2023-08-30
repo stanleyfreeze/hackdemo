@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+
+  "name": "hack demo Extension",
+  "description": "黑客日Chrome插件",
+  "version": "1.0",
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/*", "https://www.baidu.com/*"],
+      "js": ["js/vendor.js", "js/content_script.js"],
+      "css": ["style/custom.css"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "js/background.js"
+  },
+
+  "permissions": ["storage", "contextMenus", "tabs"],
+
+  "host_permissions": ["<all_urls>"]
+}
