@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
 
-  "name": "Check Extension",
+  "name": "hackdemo",
   "description": "审核Chrome插件",
   "version": "1.0",
   "devtools_page": "devtools.html",
