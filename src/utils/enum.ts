@@ -18,3 +18,18 @@ export const GETPOPSTATUS = 'getpopupstatus';
 export const GETVIDEOTIMER = 'getvideotimer';
 export const GETVIDEOSTATUS = 'getvideostatus';
 export const SET_PAGE_ENV = 'setPageEnv';
+export const ROUTES = {
+  EQUIPMENT: 'equipment', // 装备
+  TASK: 'task',
+  TASK_DETAIL: 'taskDetail',
+  TASK_PUBLISH: 'taskPublish',
+  REWARD: 'reward', // 悬赏
+  BACKPACK: 'backpack',
+  WAREHOUSE: 'warehouse', // 物资库
+  TRAINING_INSTITUTE: 'trainingInstitute', // 训练所
+  TREASURE: 'treasure', // 宝箱
+  BASE: 'base', // 基地
+  PERSONAL_INFO: 'personalInfo', // 个人信息
+  COMING_SOON: 'comingSoon', // 个人信息
+  PAY: 'pay', //  购买宝箱
+};
