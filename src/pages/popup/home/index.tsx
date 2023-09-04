@@ -37,12 +37,12 @@ export default function Home() {
         label: '训练所',
       },
       {
-        link: ROUTES.COMING_SOON,
+        link: ROUTES.BASE,
         // link: ROUTES.TREASURE,
         label: '宝箱',
       },
       {
-        link: ROUTES.BASE,
+        link: ROUTES.COMING_SOON,
         label: '基地',
       },
     ].map((v, i) => {
@@ -58,11 +58,11 @@ export default function Home() {
                                i === 1 ? 'translate(-12px, 2px)' : 
                                i === 2 ? 'translate(-13px, 2px)' : 
                                i === 3 ? 'translate(-22px, 2px)' : 
-                               i === 4 ? 'translate(-22px, 2px)' : 
-                               i === 5 ? 'translate(-4px, -12px)' :
+                               i === 4 ? 'translate(-4px, -12px)' : 
+                               i === 5 ? 'translate(-13px, -12px)' :
                                i === 6 ? 'translate(-12px, -12px)' :
-                               i === 7 ? 'translate(-20px, -12px)' :
-                               i === 8 ? 'translate(-23px, -12px)' :
+                               i === 7 ? 'translate(-18px, -12px)' :
+                               i === 8 ? 'translate(-20px, -12px)' :
                                'translate(-12px, 2px)'}}
           >{v.label}</span>
         </button>
@@ -71,6 +71,7 @@ export default function Home() {
   };
   return (
     <div className={`${Style.content} ${Style.home}`}>
+      <div>ROLL King</div>
       <div className={Style.actions}>{renderButtons()}</div>
     </div>
   );
