@@ -1,0 +1,15 @@
+seid keys add admin                                                                                                                                                    
+Enter keyring passphrase:
+Re-enter keyring passphrase:
+
+- name: admin
+  type: local
+  address: sei12kp25xa2mfz6xdlgckz5wzll0893rk8e8768qv
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AsenFqPJ2GO3N2ldUqnGrfvbymjfJSfmue4xB6L9E5y5"}'
+  mnemonic: ""
+
+
+**Important** write this mnemonic phrase in a safe place.
+It is the only way to recover your account if you ever forget your password.
+
+learn squirrel crew segment quiz tobacco relief office elbow gun arm broom town thumb loan mad doctor foster luxury main usage trim avocado body        
